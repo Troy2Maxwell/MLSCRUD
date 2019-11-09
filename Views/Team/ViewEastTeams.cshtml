@@ -1,0 +1,93 @@
+﻿<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+                body {
+    font-family: 'Montserrat';font-size: 12px;
+        }
+
+        .btn-secondary {
+            color: #495057;
+            background-color: #e9ecef;
+            border-style: groove;
+            border-width: 2px;
+            border-color: #dee2e6;
+        }
+
+            .btn-secondary span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+                .btn-secondary span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s;
+                }
+
+            .btn-secondary:hover span {
+                padding-right: 25px;
+            }
+
+                .btn-secondary:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                }
+    </style>
+</head>
+
+@model List<Team>
+
+<h3>
+    <a class="navbar-default" href="/">
+        <img src="https://cdn.freebiesupply.com/images/large/2x/mls-logo-png-transparent.png" height="50" width="50" />
+    </a>
+    MLS Eastern Conference Table
+</h3>
+<br />
+<div style="display:block">
+    <button type="button" class="btn btn-secondary" onclick="changeHref()"><span>Overall Standings</span></button>
+    <button type="button" class="btn btn-secondary" onclick="changeHrefWest()"><span>Western Conference</span></button>
+</div>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Draws</th>
+            <th>Goals For</th>
+            <th>Goals Against</th>
+            <th>Goal Difference</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    @foreach (Team team in Model)
+    {
+        <tr>
+            <td><a href=/Team/ViewEastTeams/@team.TeamID>@team.TeamName</a></td>
+            <td>@team.Wins</td>
+            <td>@team.Losses</td>
+            <td>@team.Draws</td>
+            <td>@team.GoalsFor</td>
+            <td>@team.GoalsAgainst</td>
+            <td>@team.GoalDifference</td>
+            <td>@team.Points</td>
+
+        </tr>
+    }
+</table>
+
+<script type="text/javascript">
+    function changeHrefEast() {
+        window.location = "/Team/ViewEastTeams";
+    }
+
+    function changeHref() {
+        window.location = "/Team/Index";
+    }
+</script>

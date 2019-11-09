@@ -1,0 +1,37 @@
+﻿<html>
+    <head>
+        <style>
+            .btn-secondary {
+                color: #495057;
+                background-color: #e9ecef;
+                border-style: groove;
+                border-width: 2px;
+                border-color: #dee2e6;
+            }
+
+        </style>
+    </head>
+
+@model Team
+
+<body>
+
+
+<h2>Add New MLS Team!</h2>
+
+@using (Html.BeginForm("InsertTeamToDatabase", "Team", "Post"))
+{
+    <input asp-for="TeamID" type="hidden" value="" />
+
+    <label asp-for="TeamName" class="control-label">Name</label>
+
+    <input type="text" name="TeamName" class="form-control" value="" />
+
+    <label asp-for="Conference" class="control-label">Conference</label>
+
+    <input type="text" name="Conference" class="form-control" />
+
+    <input type ="submit" value="Add Team" class="btn btn-secondary" />
+}
+    </body>
+</html>

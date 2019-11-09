@@ -1,0 +1,43 @@
+﻿@model Team
+
+<h2>Update Team Standing @Model.TeamName</h2>
+
+@using (Html.BeginForm("UpdateTeamToDataBase", "Team", "Post"))
+{
+    <input asp-for="TeamID" type="hidden" value="@Model.TeamID" />
+
+    <label asp-for="TeamName" class="control-label">Name</label>
+
+    <input type="text" name="Name" class="form-control" value="@Model.TeamName" />
+
+    <label asp-for="Wins" class="control-label">Wins</label>
+
+    <input type="number" step="1" name="Wins" class="form-control" value="@Model.Wins" />
+
+    <label asp-for="Losses" class="control-label">Losses</label>
+
+    <input type="number" step="1" name="Losses" class="form-control" value="@Model.Losses" />
+
+    <label asp-for="Draws" class="control-label">Draws</label>
+
+    <input type="number" step="1" name="Draws" class="form-control" value="@Model.Draws" />
+
+    <label asp-for="GoalsFor" class="control-label">Goals For</label>
+
+    <input type="number" step="1" name="Goals For" class="form-control" value="@Model.GoalsFor" />
+
+    <label asp-for="GoalsAgainst" class="control-label">Goals Against</label>
+
+    <input type="number" step="1" name="Goals Against" class="form-control" value="@Model.GoalsAgainst" />
+
+    <label asp-for="GoalDifference" class="control-label">Goal Difference</label>
+
+    <input type="number" step="1" name="Goal Difference" class="form-control" value="@Model.GoalDifference" />
+
+    <label asp-for="Points" class="control-label">Points</label>
+
+    <input type="number" step="1" name="Points" class="form-control" value="@Model.Points" />
+
+    <input type="submit" value="Update Team Standing" class="btn btn-secondary" />
+}
+
