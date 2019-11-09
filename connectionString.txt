@@ -1,0 +1,1 @@
+﻿Server=localhost;Database=mlstable;uid=root;Pwd=password
